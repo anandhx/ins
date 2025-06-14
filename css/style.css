@@ -826,15 +826,15 @@ h1, h2, h3, h4, h5, h6 {
 -----------------------*/
 
 .hero {
-    position: relative;
+	position: relative;
     height: 100vh;
     overflow: hidden;
 }
 
 .hero__items {
     height: 100vh;
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
     position: relative;
 }
 
@@ -859,14 +859,14 @@ h1, h2, h3, h4, h5, h6 {
 .hero__text__inner {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+	text-align: center;
 }
 
 .hero__text h2 {
     font-size: 5rem;
     font-weight: 700;
     margin-bottom: 20px;
-    opacity: 0;
+	opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards;
 }
@@ -874,7 +874,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero__text p {
     font-size: 1.5rem;
     margin-bottom: 40px;
-    opacity: 0;
+	opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease 0.3s forwards;
 }
@@ -940,7 +940,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__social {
-    position: absolute;
+	position: absolute;
     left: 50px;
     bottom: 50px;
     z-index: 2;
@@ -967,7 +967,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__scroll {
-    position: absolute;
+	position: absolute;
     bottom: 50px;
     right: 50px;
     z-index: 2;
@@ -1026,7 +1026,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(30px);
     }
     to {
-        opacity: 1;
+	opacity: 1;
         transform: translateY(0);
     }
 }
@@ -1045,7 +1045,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Owl Carousel Custom Styles */
 .owl-dots {
-    position: absolute;
+	position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -3201,7 +3201,7 @@ h1, h2, h3, h4, h5, h6 {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 34px;
+		top: 7px;
 	}
 	.offcanvas-menu-overlay {
 		position: fixed;
@@ -3334,7 +3334,7 @@ h1, h2, h3, h4, h5, h6 {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 34px;
+		top: 7px;
 	}
 	.offcanvas-menu-overlay {
 		position: fixed;
@@ -3692,8 +3692,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero__items {
-        height: 100vh;
-        min-height: 500px;
+       
     }
 
     .section-title h2 {
@@ -4099,6 +4098,9 @@ html {
     background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
     opacity: 0;
     transition: var(--transition);
+	color:#ffffff;
+	padding-top: 31px;
+
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -4254,13 +4256,13 @@ html {
         width: 50px;
         height: 50px;
         font-size: 24px;
-        bottom: 20px;
+        bottom: 85px;
         right: 20px;
     }
 
     .scroll-top {
-        bottom: 20px;
-        right: 80px;
+        bottom: 21px;
+        right: 24px;
 	}
 }
 
@@ -4722,5 +4724,5 @@ html {
     to {
         opacity: 1;
         transform: scale(1);
-    }
+	}
 }
