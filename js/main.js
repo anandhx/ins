@@ -292,25 +292,74 @@
         });
     });
 
-    // Enhanced Scroll Progress
-    const progressBar = document.createElement('div');
-    progressBar.className = 'scroll-progress';
-    document.body.appendChild(progressBar);
+    // Scroll Progress Bar
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress';
+    document.body.appendChild(scrollProgress);
 
     window.addEventListener('scroll', () => {
         const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const progress = (window.scrollY / windowHeight) * 100;
-        progressBar.style.width = `${progress}%`;
+        scrollProgress.style.transform = `scaleX(${progress / 100})`;
     });
 
-    // Parallax Effect
-    document.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    // Enhanced Desktop Animations
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.portfolio-item, .feature-card, .section-title');
         
-        document.querySelectorAll('.parallax').forEach(element => {
-            element.style.transform = `translateX(${moveX}px) translateY(${moveY}px)`;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
         });
+
+        elements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(element);
+        });
+    };
+
+    // Parallax Effect for Hero Section
+    const parallaxEffect = () => {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        });
+    };
+
+    // Smooth Scroll for Navigation
+    const smoothScroll = () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    };
+
+    // Initialize all desktop enhancements
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth >= 992) {
+            animateOnScroll();
+            parallaxEffect();
+            smoothScroll();
+        }
     });
 
     // Initialize AOS
@@ -319,6 +368,88 @@
         easing: 'ease-in-out',
         once: true,
         mirror: false
+    });
+
+    // Hero Section Carousel
+    const initHeroCarousel = () => {
+        $('.hero__slider').owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            animateOut: 'fadeOut',
+            onInitialized: function() {
+                // Trigger animations for first slide
+                animateHeroContent();
+            },
+            onTranslated: function() {
+                // Trigger animations for each slide change
+                animateHeroContent();
+            }
+        });
+    };
+
+    // Animate Hero Content
+    const animateHeroContent = () => {
+        const activeSlide = document.querySelector('.owl-item.active');
+        if (!activeSlide) return;
+
+        const elements = activeSlide.querySelectorAll('.animate-text');
+        elements.forEach((element, index) => {
+            element.style.animation = 'none';
+            element.offsetHeight; // Trigger reflow
+            element.style.animation = `fadeInUp 1s ease ${index * 0.2}s forwards`;
+        });
+    };
+
+    // Counter Animation
+    const initCounters = () => {
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-count');
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(() => animateCounter(counter), 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    };
+
+    // Smooth Scroll
+    const initSmoothScroll = () => {
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            const nextSection = document.querySelector('.quick-stats');
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    };
+
+    // Initialize all features
+    document.addEventListener('DOMContentLoaded', () => {
+        initHeroCarousel();
+        initCounters();
+        initSmoothScroll();
     });
 
 })(jQuery);
