@@ -5282,3 +5282,51 @@ html {
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
+
+/* Counter Section Styles */
+.counter-section {
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.counter-item {
+    text-align: left;
+}
+
+.counter-item h3 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1c1c1c;
+}
+
+.counter-item p {
+    font-size: 18px;
+    color: #666666;
+    margin: 0;
+}
+
+/* Ensure counter text is visible */
+.counter {
+    display: inline-block;
+    color: #1c1c1c;
+    font-weight: 700;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .counter-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .counter-item h3 {
+        font-size: 36px;
+    }
+    
+    .counter-item p {
+        font-size: 16px;
+    }
+}

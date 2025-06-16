@@ -27,6 +27,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.0/dist/countUp.min.js"></script>
 </head>
 
 <body>
@@ -108,7 +109,7 @@
                     <div class="hero-text">
                         <h2>We Design <span class="auto-type"></span></h2>
                         <p>fostering success and sparking innovation</p>
-                        <a href="contact.html" class="primary-btn">Get Started</a>
+                        
                     </div>
                 </div>
             </div>
@@ -117,7 +118,7 @@
                     <div class="hero-text">
                         <h2>We Design <span class="auto-type"></span></h2>
                         <p>fostering success and sparking innovation</p>
-                        <a href="contact.html" class="primary-btn">Get Started</a>
+                        
                     </div>
                 </div>
             </div>
@@ -126,7 +127,7 @@
                     <div class="hero-text">
                         <h2>We Design <span class="auto-type"></span></h2>
                         <p>fostering success and sparking innovation</p>
-                        <a href="contact.html" class="primary-btn">Get Started</a>
+                        
                     </div>
                 </div>
             </div>
@@ -145,26 +146,32 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="stat-item">
-                        <div class="stat-number" data-count="150">150</div>
+                        <div class="stat-number" data-count="150">0</div>
                         <div class="stat-label">Projects Completed</div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="stat-item">
-                        <div class="stat-number" data-count="120">150</div>
+                        <div class="stat-number" data-count="120">0</div>
                         <div class="stat-label">Happy Clients</div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="stat-item">
-                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-number" data-count="13">0</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                 </div>
-                
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-label">Team Members</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     <!-- Quick Stats Section End -->
 
     <!-- Interior Design Showcase Begin -->
@@ -891,6 +898,56 @@
 
 <!-- Add this before closing body tag -->
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".stat-number");
+        
+        const startCounting = (counter) => {
+            const target = parseInt(counter.getAttribute("data-count"));
+            const duration = 2000; // 2 seconds
+            const frameDuration = 1000 / 60; // 60fps
+            const totalFrames = Math.round(duration / frameDuration);
+            let frame = 0;
+            
+            const updateCounter = () => {
+                frame++;
+                const progress = frame / totalFrames;
+                const currentCount = Math.floor(progress * target);
+                
+                counter.innerText = currentCount;
+                
+                if (frame < totalFrames) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target; // Ensure final value is exact
+                }
+            };
+            
+            requestAnimationFrame(updateCounter);
+        };
+
+        // Start counting when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounting(entry.target);
+                    observer.unobserve(entry.target); // Stop observing once started
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    });
+</script>
+
+
+<script>
+
+
+
+
+
     // Scroll to Top Button
     const scrollTop = document.querySelector('.scroll-top');
     
@@ -1010,6 +1067,54 @@
                 typedInstances[index] = initTyped(this);
             });
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize counters
+        function initCounters() {
+            $('.counter').each(function() {
+                var $this = $(this);
+                var countTo = $this.attr('data-count');
+                
+                var countUp = new CountUp($this[0], 0, countTo, 0, 2.5, {
+                    useEasing: true,
+                    useGrouping: true,
+                    separator: ',',
+                    decimal: '.'
+                });
+                
+                countUp.start();
+            });
+        }
+
+        // Initialize counters when element is in viewport
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Check if counters are in viewport and initialize
+        function checkCounters() {
+            $('.counter-section').each(function() {
+                if (isElementInViewport(this) && !$(this).hasClass('counted')) {
+                    $(this).addClass('counted');
+                    initCounters();
+                }
+            });
+        }
+
+        // Check on scroll
+        $(window).on('scroll', checkCounters);
+        
+        // Initial check
+        checkCounters();
     });
 </script>
 </body>
