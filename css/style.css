@@ -584,7 +584,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .spad {
-	padding-top: 100px;
+	padding-top: 231px;
 	padding-bottom: 100px;
 }
 
@@ -1776,8 +1776,8 @@ h1, h2, h3, h4, h5, h6 {
 -----------------------*/
 
 .callto {
-	padding-top: 130px;
-	padding-bottom: 135px;
+	padding-top: -15px;
+	padding-bottom: 0px;
 }
 
 .callto__text span {
@@ -5486,6 +5486,82 @@ html {
     .portfolio-overlay p {
         font-size: 14px;
     }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: #bbb;
+    text-decoration: none;
+}
+
+#modalCaption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: #ccc;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+/* Portfolio Item Hover Effect */
+.portfolio-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.02);
+}
+
+/* Image Slider Styles */
+.image-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-slider img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+}
+
+.image-slider img:not(.active) {
+    display: none;
 }
 
 
