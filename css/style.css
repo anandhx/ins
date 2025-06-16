@@ -117,15 +117,36 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--dark-text) !important;
+	color: black;
 }
 
 .navbar-nav .nav-link {
-    color: var(--dark-text-secondary);
+    color: black;
     font-weight: 500;
     padding: 0.5rem 1rem;
     transition: all 0.3s ease;
     position: relative;
 }
+
+
+.header.sticky .navbar-brand,
+.header.sticky .nav-link {
+    color: #ffffff !important; /* white text on dark sticky header */
+}
+
+
+.quick-stats {
+    background-image: url('img/count.jpg'); /* Change to your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0;
+    color: white; /* Make text white for visibility */
+    text-align: center;
+}
+
+
+
 
 .navbar-nav .nav-link::after {
     content: '';
@@ -146,6 +167,7 @@ body {
 /* Enhanced Mobile Menu */
 .offcanvas-menu-wrapper {
     background: var(--dark-surface);
+	padding-top: 110px;
     backdrop-filter: var(--dark-blur);
     -webkit-backdrop-filter: var(--dark-blur);
 }
@@ -158,6 +180,7 @@ body {
     color: var(--dark-text);
     font-size: 1.2rem;
     padding: 1rem 0;
+	padding-top: 110px;
     border-bottom: 1px solid var(--dark-border);
     transition: all 0.3s ease;
 }
@@ -757,7 +780,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	z-index: 99;
 	background: rgb(244 244 244 / 83%);
-	border-bottom: 1px solid var(--dark-border);
+	border-bottom: 2px solid var(#fce516);
 	transition: all 0.3s;
 	backdrop-filter: blur(10px);
 }
@@ -855,7 +878,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header__menu ul li a {
 	font-size: 15px;
-	color: var(--dark-text);
+	color: black;
 	display: block;
 	font-weight: 600;
 	padding: 5px 0;
@@ -885,7 +908,7 @@ h1, h2, h3, h4, h5, h6 {
 .header__widget span {
 	font-size: 14px;
 	font-family: "Aldrich", sans-serif;
-	color: #a0a0a0;
+	color: #3b3a3e;
 	display: block;
 	margin-bottom: 10px;
 }
@@ -1200,7 +1223,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Quick Stats Section */
 .quick-stats {
     padding: 80px 0;
-    background: var(--light-color);
+	
+    background: #d3d4d4ba;
 }
 
 .stat-item {
@@ -3541,7 +3565,7 @@ h1, h2, h3, h4, h5, h6 {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 7px;
+		top: 17px;
 	}
 	.offcanvas-menu-overlay {
 		position: fixed;
@@ -3563,8 +3587,10 @@ h1, h2, h3, h4, h5, h6 {
 	.offcanvas-menu-wrapper {
 		position: fixed;
 		left: -300px;
+
 		width: 300px;
 		height: 100%;
+		padding-top: 110px;
 		background: var(--dark-bg);
 		padding: 50px 20px 30px 30px;
 		display: block;
@@ -3577,6 +3603,7 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.offcanvas-menu-wrapper.active {
 		opacity: 1;
+		padding-top: 86px;
 		left: 0;
 	}
 	.offcanvas__logo {
@@ -5606,7 +5633,7 @@ html {
 }
 
 .logo__text h6 {
-    font-size: 10px;
+    font-size: 8px;
     margin: 0;
     font-weight: 400;
     opacity: 1.8;
