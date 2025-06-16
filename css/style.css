@@ -756,14 +756,14 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
 	width: 100%;
 	z-index: 99;
-	background: rgba(10, 10, 10, 0.95);
+	background: rgb(244 244 244 / 83%);
 	border-bottom: 1px solid var(--dark-border);
 	transition: all 0.3s;
 	backdrop-filter: blur(10px);
 }
 
 .header.sticky {
-	background: rgba(10, 10, 10, 0.98);
+	background: rgb(244 244 244 / 83%);
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -5567,4 +5567,47 @@ html {
 
 
 
- 
+.header__logoo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: scale(1.8);
+    transform-origin: left center;
+    padding-left: 17px;
+    padding-top: 2px;
+}
+.header__logoo img {
+    height: 30px;          /* Smaller height */
+    width: auto;           /* Maintain aspect ratio */
+    object-fit: contain;
+    display: block;
+}
+
+.header__logoo h2 {
+    font-size: 16px;       /* Smaller text */
+    margin: 0;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;   /* Prevent wrapping */
+}
+
+
+
+.logo__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.logo__text h2 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.logo__text h6 {
+    font-size: 10px;
+    margin: 0;
+    font-weight: 400;
+    opacity: 1.8;
+}
