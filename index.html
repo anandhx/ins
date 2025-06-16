@@ -174,44 +174,40 @@
 
     <!-- Quick Stats Section End -->
 
-    <!-- Interior Design Showcase Begin -->
-    <section class="interior-showcase spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <span>Our Portfolio</span>
-                        <h2>Interior Design Excellence</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="img/project/project-1.jpg" alt="Modern Living Room">
-                    <div class="portfolio-overlay">
-                    
-                        <h4>Modern Living Room</h4> 
-                        <br>
-                        <br>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="img/project/project-2.jpg" alt="Luxury Kitchen">
-                    <div class="portfolio-overlay">
-                        <h4>Luxury Kitchen</h4> 
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="img/project/project-3.jpg" alt="Master Bedroom">
-                    <div class="portfolio-overlay">
-                        <h4>Master Bedroom</h4> 
-                    </div>
-                </div>
-             
-            </div>
+   <div class="portfolio-grid">
+    <div class="portfolio-item">
+        <div class="image-slider">
+            <img src="img/portfolio/i1.jpeg" alt="Modern Living Room 1">
+            <img src="img/portfolio/i2.jpeg" alt="Modern Living Room 2">
+            <img src="img/portfolio/i3.jpeg" alt="Modern Living Room 3">
         </div>
-    </section>
-    <!-- Interior Design Showcase End -->
+        <div class="portfolio-overlay">
+            <h4>Modern Living Room</h4> 
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <div class="image-slider">
+            <img src="img/project/project-2.jpg" alt="Luxury Kitchen">
+            <img src="img/portfolio/i1.jpeg" alt="Luxury Kitchen 1">
+            <img src="img/portfolio/i2.jpeg" alt="Luxury Kitchen 2">
+        </div>
+        <div class="portfolio-overlay">
+            <h4>Luxury Kitchen</h4> 
+        </div>
+    </div>
+
+    <div class="portfolio-item">
+        <div class="image-slider">
+            <img src="img/project/project-3.jpg" alt="Master Bedroom">
+            <img src="img/portfolio/i3.jpeg" alt="Master Bedroom 2">
+            <img src="img/portfolio/i2.jpeg" alt="Master Bedroom 3">
+        </div>
+        <div class="portfolio-overlay">
+            <h4>Master Bedroom</h4> 
+        </div>
+    </div>
+</div>
 
     <!-- About Section -->
     <section class="about parallax-section" data-speed="0.3">
@@ -1008,6 +1004,8 @@
     });
 </script>
 
+
+
 <!-- Add Typed.js before closing body tag -->
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 <script>
@@ -1117,6 +1115,29 @@
         checkCounters();
     });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const sliders = document.querySelectorAll(".image-slider");
+
+    sliders.forEach(slider => {
+        const images = slider.querySelectorAll("img");
+        let current = 0;
+
+        images.forEach((img, i) => {
+            img.classList.remove("active");
+            if (i === 0) img.classList.add("active");
+        });
+
+        setInterval(() => {
+            images[current].classList.remove("active");
+            current = (current + 1) % images.length;
+            images[current].classList.add("active");
+        }, 1000); // every 1 second
+    });
+});
+</script>
+ 
 </body>
 
 </html>

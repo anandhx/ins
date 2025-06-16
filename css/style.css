@@ -5330,3 +5330,174 @@ html {
         font-size: 16px;
     }
 }
+
+/* Service Section Styles */
+.services-section {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.service-item {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.service-img {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.service-item h4 {
+    padding: 20px 20px 10px;
+    margin: 0;
+    font-size: 24px;
+    color: #1c1c1c;
+}
+
+.service-item p {
+    padding: 0 20px 20px;
+    margin: 0;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Owl Carousel Custom Styles */
+.service-img-slider .owl-stage-outer {
+    height: 100%;
+}
+
+.service-img-slider .owl-item {
+    height: 100%;
+}
+
+.service-img-slider .owl-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .service-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-img {
+        height: 180px;
+    }
+    
+    .service-item h4 {
+        font-size: 20px;
+    }
+}
+
+/* Portfolio Image Slider Styles */
+.portfolio-img-slider {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.portfolio-img-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.portfolio-item {
+    position: relative;
+    margin-bottom: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: #ffffff;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-overlay h4 {
+    margin: 0 0 5px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.portfolio-overlay p {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* Owl Carousel Custom Styles */
+.portfolio-img-slider .owl-stage-outer {
+    height: 100%;
+}
+
+.portfolio-img-slider .owl-item {
+    height: 100%;
+}
+
+.portfolio-img-slider .owl-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .portfolio-img-slider {
+        height: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    .portfolio-img-slider {
+        height: 200px;
+    }
+    
+    .portfolio-overlay h4 {
+        font-size: 18px;
+    }
+    
+    .portfolio-overlay p {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
