@@ -364,8 +364,7 @@ body {
     transform: scale(1.1);
 }
 
-.portfolio-overlay {
-    background: linear-gradient(to top, rgba(10,10,10,0.9), rgba(10,10,10,0.4));
+.portfolio-overlay { 
     opacity: 0;
     transition: all 0.4s ease;
 }
@@ -3876,7 +3875,7 @@ h1, h2, h3, h4, h5, h6 {
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.7);
+		
         padding: 20px;
         color: white;
         opacity: 0;
@@ -4302,8 +4301,7 @@ html {
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.portfolio-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+.portfolio-overlay { 
     opacity: 0;
     transition: var(--transition);
 	color:#ffffff;
@@ -4715,8 +4713,7 @@ html {
         transform: scale(1.1);
     }
 
-    .portfolio-overlay {
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    .portfolio-overlay { 
         padding: 30px;
         transform: translateY(100%);
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -4966,8 +4963,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
+    height: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5434,8 +5430,7 @@ html {
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    right: 0; 
     padding: 20px;
     color: #ffffff;
     transform: translateY(100%);
@@ -5496,8 +5491,4 @@ html {
 
 
 
-
-
-
-
-
+ 
