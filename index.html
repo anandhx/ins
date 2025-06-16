@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/slick.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- Add required scripts in head section -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
 </head>
 
 <body>
@@ -96,53 +101,43 @@
 
 
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="hero__text">
-                    <div class="hero__text__inner">
-                        <h2 class="animate-text">Transform Your Space</h2>
-                        <p class="animate-text">Where Elegance Meets Innovation</p>
-                        <div class="hero__buttons"> 
-                            <a href="#contact" class="secondary-btn">Get in Touch</a>
-                        </div>
-                      
+    <section class="hero-section">
+        <div class="hero-slider owl-carousel">
+            <div class="hero-item set-bg" data-setbg="img/hero/bg1.jpg">
+                <div class="container">
+                    <div class="hero-text">
+                        <h2>We Design <span class="auto-type"></span></h2>
+                        <p>fostering success and sparking innovation</p>
+                        <a href="contact.html" class="primary-btn">Get Started</a>
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="hero__text">
-                    <div class="hero__text__inner">
-                        <h2 class="animate-text">Modern Living</h2>
-                        <p class="animate-text">Creating Spaces That Inspire</p>
-                       
-                      
+            <div class="hero-item set-bg" data-setbg="img/hero/d4.webp">
+                <div class="container">
+                    <div class="hero-text">
+                        <h2>We Design <span class="auto-type"></span></h2>
+                        <p>fostering success and sparking innovation</p>
+                        <a href="contact.html" class="primary-btn">Get Started</a>
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                <div class="hero__text">
-                    <div class="hero__text__inner">
-                        <h2 class="animate-text">Luxury Interiors</h2>
-                        <p class="animate-text">Excellence in Every Detail</p>
-                         
+            <div class="hero-item set-bg" data-setbg="img/hero/d3.webp">
+                <div class="container">
+                    <div class="hero-text">
+                        <h2>We Design <span class="auto-type"></span></h2>
+                        <p>fostering success and sparking innovation</p>
+                        <a href="contact.html" class="primary-btn">Get Started</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="hero__social">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="hero__scroll">
-            <div class="scroll-indicator">
-                <span>Scroll Down</span> 
             </div>
         </div>
     </section>
     <!-- Hero Section End -->
+
+    
+
+
+    
 
     <!-- Quick Stats Section Begin -->
     <section class="quick-stats">
@@ -953,6 +948,68 @@
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'all 0.5s ease';
         observer.observe(card);
+    });
+</script>
+
+<!-- Add Typed.js before closing body tag -->
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+    $(document).ready(function() {
+        // Initialize Owl Carousel
+        var owl = $('.hero-slider').owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 0,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            smartSpeed: 1000
+        });
+
+        // Function to initialize Typed.js
+        function initTyped(element) {
+            return new Typed(element, {
+                strings: ['Commercial Spaces','Residential Spaces','Office Spaces', 'Retail Spaces', 'Hospitality Spaces'],
+                typeSpeed: 80,
+                backSpeed: 50,
+                backDelay: 2000,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoStart: true
+            });
+        }
+
+        // Initialize Typed.js for all slides
+        var typedInstances = [];
+        $('.auto-type').each(function(index) {
+            typedInstances[index] = initTyped(this);
+        });
+
+        // Handle slide changes
+        owl.on('changed.owl.carousel', function(event) {
+            var currentSlide = event.item.index;
+            
+            // Destroy all existing typed instances
+            typedInstances.forEach(function(instance) {
+                if (instance) {
+                    instance.destroy();
+                }
+            });
+            
+            // Clear the array
+            typedInstances = [];
+            
+            // Reinitialize Typed.js for all slides
+            $('.auto-type').each(function(index) {
+                typedInstances[index] = initTyped(this);
+            });
+        });
     });
 </script>
 </body>
